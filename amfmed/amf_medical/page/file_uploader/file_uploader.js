@@ -6,14 +6,14 @@ frappe.pages['file_uploader'].on_page_load = function (wrapper) {
 	let page = frappe.ui.make_app_page({
 		parent: wrapper,
 		title: 'File Uploader',
-		single_column: false,
+		single_column: false
 	});
 
 	let state = {
-		files: [], // will contain a list of objects with attributes: name, fileObj, uploaded, error, message
+		files: [] // will contain a list of objects with attributes: name, fileObj, uploaded, error, message
 	};
 
-	page.set_primary_action('Upload', upload, 'octicon octicon-plus');
+	//page.set_primary_action('Upload', upload, 'octicon octicon-plus');
 
 	let form = new frappe.ui.FieldGroup({
 		fields: [{
@@ -146,7 +146,6 @@ frappe.pages['file_uploader'].on_page_load = function (wrapper) {
 				.finally(draw_table);
 		}
 	}
-
 
 	// LISTENERS
 	////////////////////////
