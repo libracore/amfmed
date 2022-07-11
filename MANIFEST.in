@@ -1,0 +1,18 @@
+include MANIFEST.in
+include requirements.txt
+include *.json
+include *.md
+include *.py
+include *.txt
+recursive-include amfmed *.css
+recursive-include amfmed *.csv
+recursive-include amfmed *.html
+recursive-include amfmed *.ico
+recursive-include amfmed *.js
+recursive-include amfmed *.json
+recursive-include amfmed *.md
+recursive-include amfmed *.png
+recursive-include amfmed *.py
+recursive-include amfmed *.svg
+recursive-include amfmed *.txt
+recursive-exclude amfmed *.pyc
