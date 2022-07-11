@@ -1,0 +1,29 @@
+{
+ "content": null,
+ "creation": "2022-07-11 13:28:03.231623",
+ "docstatus": 0,
+ "doctype": "Page",
+ "idx": 0,
+ "modified": "2022-07-11 13:28:43.687730",
+ "modified_by": "Administrator",
+ "module": "AMF Medical",
+ "name": "file_uploader",
+ "owner": "Administrator",
+ "page_name": "file_uploader",
+ "roles": [
+  {
+   "role": "Purchase User"
+  },
+  {
+   "role": "Purchase Manager"
+  },
+  {
+   "role": "System Manager"
+  }
+ ],
+ "script": null,
+ "standard": "Yes",
+ "style": null,
+ "system_page": 0,
+ "title": "File Uploader"
+}
