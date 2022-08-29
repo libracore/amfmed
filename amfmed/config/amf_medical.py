@@ -7,12 +7,18 @@ def get_data():
             "label": _("Accounting"),
             "icon": "octicon octicon-git-compare",
             "items": [
-                   {
+                    {
                         "type": "page",
                         "name": "file_uploader",
                         "label": _("PINV uploader"),
                         "description": _("Bulk upload scanned purchase invoices")           
-                   },                 
+                    },
+                    {
+                       "type": "doctype",
+                       "name": "Subproject",
+                       "label": _("Subproject"),
+                       "description": _("Subproject")
+                    }              
             ]
         },
         {
