@@ -88,5 +88,18 @@ def get_data():
                        "description": _("VAT query")
                     }
             ]
+        },
+        {
+            "label": _("Reports"),
+            "icon": "octicon octicon-git-compare",
+            "items": [
+                    {
+                        "type": "report",
+                        "name": "Item-wise purchase register (Script)",
+                        "label": _("Item-wise purchase register (Script)"),
+                        "doctype": "Purchase Invoice",
+                        "is_query_report": True
+                    }             
+            ]
         }
 ]
