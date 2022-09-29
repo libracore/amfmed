@@ -17,11 +17,12 @@ def get_columns():
         {"label": _("Item Group"), "fieldname": "item_group", "fieldtype": "Link", "options": "Item Group", "width": 100},
         {"label": _("Description"), "fieldname": "description", "fieldtype": "Data", "width": 150},
         {"label": _("Invoice"), "fieldname": "invoice", "fieldtype": "Link", "options": "Purchase invoice", "width": 100},
-        {"label": _("Status"), "fieldname": "status", "fieldtype": "Data", "width": 100},
+        # {"label": _("Status"), "fieldname": "status", "fieldtype": "Data", "width": 100},
         {"label": _("Date"), "fieldname": "posting_date", "fieldtype": "Date", "width": 80},
         {"label": _("Supplier"), "fieldname": "supplier", "fieldtype": "Link", "options": "Supplier", "width": 120},
         {"label": _("Supplier name"), "fieldname": "supplier_name", "fieldtype": "Data", "width": 120},
         {"label": _("Payable account"), "fieldname": "payable_account", "fieldtype": "Link", "options": "Account", "width": 80},
+        {"label": _("Mode of Payment"), "fieldname": "mode_of_payment", "fieldtype": "Data", "width": 100},
         {"label": _("Project"), "fieldname": "project", "fieldtype": "Link", "options": "Project", "width": 100},
         {"label": _("Subproject"), "fieldname": "subproject", "fieldtype": "Link", "options": "Project", "width": 100},
         {"label": _("Purchase Order"), "fieldname": "purchase_order", "fieldtype": "Link", "options": "Purchase Order", "width": 100},
@@ -64,6 +65,7 @@ def get_data(filters):
             `tabPurchase Invoice`.`supplier` AS `supplier`,
             `tabPurchase Invoice`.`supplier_name`AS `supplier_name`,
             `tabPurchase Invoice`.`credit_to` AS `payable_account`,
+            `tabPayment Entry`.`mode_of_payment` AS `mode_of_payment`,
             `tabPurchase Invoice Item`.`project` AS `project`,
             `tabPurchase Invoice Item`.`subproject` AS `subproject`,
             `tabPurchase Invoice Item`.`purchase_order` AS `purchase_order`,
@@ -77,6 +79,8 @@ def get_data(filters):
         FROM `tabPurchase Invoice Item`
         LEFT JOIN `tabPurchase Invoice` ON `tabPurchase Invoice`.`name` = `tabPurchase Invoice Item`.`parent`
         LEFT JOIN `tabItem` ON `tabItem`.`name` = `tabPurchase Invoice Item`.`item_code`
+        LEFT JOIN `tabPayment Entry Reference` ON `tabPayment Entry Reference`.`reference_name` = `tabPurchase Invoice`.`name`
+        LEFT JOIN `tabPayment Entry` ON `tabPayment Entry`.`name` = `tabPayment Entry Reference`.`parent`
         WHERE 
             `tabPurchase Invoice`.`docstatus` = 1
             AND `tabPurchase Invoice`.`posting_date` >= "{from_date}"
