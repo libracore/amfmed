@@ -8,6 +8,13 @@ def get_data():
             "icon": "octicon octicon-git-compare",
             "items": [
                     {
+                        "type": "report",
+                        "name": "General Ledger (AMF Medical)",
+                        "label": _("General Ledger (AMF Medical)"),
+                        "doctype": "GL Entry",
+                        "is_query_report": True
+                    },
+                    {
                         "type": "page",
                         "name": "file_uploader",
                         "label": _("PINV uploader"),
