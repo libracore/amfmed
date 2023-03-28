@@ -118,12 +118,14 @@ def get_result(filters, account_details):
     for r in result:
         if 'voucher_type' in r:
             if r['voucher_type'] == "Payment Entry":
-                r['ref_no'] = frappe.get_value(r['voucher_type'], r['voucher_no'], 'reference_no')
+                r['ref_no'] = frappe.get_value(r['voucher_type'], r['voucher_no'], 'reference_no', 'project')
             elif r['voucher_type'] == "Purchase Invoice":
                 r['subproject'] = frappe.db.sql(
                     """SELECT MAX(`subproject`) AS `subproject`
                        FROM `tabPurchase Invoice Item`
-                       WHERE `parent` = "{0}"; """.format(r['voucher_no']), as_dict=True)[0]['subproject']
+                       WHERE 
+                        `parent` = "{0}"
+                        AND `project` = "{1}"; """.format(r['voucher_no'], r['project']), as_dict=True)[0]['subproject']
             
     return result
 
