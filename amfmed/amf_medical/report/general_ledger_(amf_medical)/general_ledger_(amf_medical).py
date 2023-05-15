@@ -119,6 +119,9 @@ def get_result(filters, account_details):
         if 'voucher_type' in r:
             if r['voucher_type'] == "Payment Entry":
                 r['ref_no'] = frappe.get_value(r['voucher_type'], r['voucher_no'], 'reference_no', 'project')
+                if not r['party_type']:
+                    r['party_type'] = frappe.get_value(r['voucher_type'], r['voucher_no'], 'party_type')
+                    r['party'] = frappe.get_value(r['voucher_type'], r['voucher_no'], 'party')
             elif r['voucher_type'] == "Purchase Invoice":
                 r['subproject'] = frappe.db.sql(
                     """SELECT MAX(`subproject`) AS `subproject`
