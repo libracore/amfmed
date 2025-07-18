@@ -15,8 +15,8 @@ app_license = "AGPL"
 # ------------------
 
 # include js, css files in header of desk.html
-# app_include_css = "/assets/amfmed/css/amfmed.css"
-# app_include_js = "/assets/amfmed/js/amfmed.js"
+app_include_css = "/assets/amfmed/css/amfmed.css"
+app_include_js = "/assets/amfmed/js/amfmed_common.js"
 
 # include js, css files in header of web template
 # web_include_css = "/assets/amfmed/css/amfmed.css"
